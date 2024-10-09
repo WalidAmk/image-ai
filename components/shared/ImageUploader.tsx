@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import { CldUploadWidget, CloudinaryUploadResult } from 'next-cloudinary';
+import { CldUploadWidget, CloudinaryUploadWidgetResults  } from 'next-cloudinary';
 import { image_info } from '@/types/supabase';
 import { Button } from '../ui/button';
 import Image from 'next/image';
@@ -34,7 +34,7 @@ const ImageUploader: React.FC = () => {
                     sources: ['local'], 
                     maxFiles: 1,
                 }}
-                onSuccess={(result: CloudinaryUploadResult ) => {
+                onSuccess={(result: CloudinaryUploadWidgetResults ) => {
                     const image_info: image_info = {
                         user_id: "",
                         name: result?.info?.display_name || '',
