@@ -30,7 +30,6 @@ import {
 
 import { useImagesContext, useInteractiveContext } from '@/context/FullContext'
 import { ChromePicker, ColorResult } from 'react-color';
-import { ScrollArea } from '../ui/scroll-area'
 
 
 
@@ -213,19 +212,34 @@ const GenerativeOption = () => {
                         setImageWidth(originalImageWidth);
                         setImageHeight(originalImageHeight);
                         setSelectedOption("");
-                }}>
+                    }}
+                >
                     Clear
                 </Button>
+
                 {
-                    originalImageUrl && 
-                    (selectedOption === generative_option.options[0] && prompt && imageWidth && imageHeight) ||
-                    (prompt) ||
-                    (replacePrompt && byPrompt) ||
-                    (selectedOption === generative_option.options[3] && imageWidth && imageHeight) ||
-                    (selectedOption === generative_option.options[4] && backgroundColor && prompt)
-                    && <Button onClick={() => setApplyTransformation(true)}>Apply</Button>                        
+                    originalImageUrl &&
+                    (
+                        // Condition for "Generative" (option 1 and 2)
+                        (selectedOption === generative_option.options[0] && prompt) ||
+                        (selectedOption === generative_option.options[1] && prompt) ||
+
+                        // Condition for "Replace" (option 3)
+                        (selectedOption === generative_option.options[2] && replacePrompt && byPrompt) ||
+
+                        // Condition for "Resize" (option 4)
+                        (selectedOption === generative_option.options[3] && imageWidth && imageHeight) ||
+
+                        // Condition for "Recolor" (option 5)
+                        (selectedOption === generative_option.options[4] && backgroundColor && prompt)
+                    ) && 
+                        <Button onClick={() => setApplyTransformation(true)}>
+                            Apply
+                        </Button>
+                    
                 }
             </CardFooter>
+
         </Card>
     )
 }
