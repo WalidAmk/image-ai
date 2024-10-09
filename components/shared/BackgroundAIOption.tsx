@@ -1,8 +1,7 @@
 "use client"
 
-
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
@@ -10,49 +9,49 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select"
-import { background_option } from "@/contents/contents"
-import { ChromePicker } from 'react-color'
+} from "@/components/ui/select";
+import { background_option } from "@/contents/contents";
+import { ChromePicker, ColorResult } from 'react-color';
 import { useImagesContext, useInteractiveContext } from "@/context/FullContext";
 
+interface Image {
+    url: string;
+    name: string;
+}
 
+const BackgroundAIOption: React.FC = () => {
 
-const BackgroundAIOption = () => {
+    const [images, setImages] = useState<Image[]>([]);
+    const { originalImageUrl } = useImagesContext();
+    const { setApplyTransformation } = useInteractiveContext();
+
+    const [activeOption, setActiveOption] = useState<string>("");
+    const [backgroundColor, setBackgroundColor] = useState<string>('#fff');
+    const [backgroundUrl, setBackgroundUrl] = useState<string>("");
+    const [parametres, setParamaetres] = useState<object>({});
 
     useEffect(() => {
         const getImages = async () => {
             const response = await fetch('/api/images/get');
-            if(response.status === 201) {
-                const {data} = await response.json();
-                setImages(data)
+            if (response.status === 201) {
+                const { data } = await response.json();
+                setImages(data);
             }
-        }
-        getImages()
-    },[])
-    
-    const [images, setImages] = useState([]);
+        };
+        getImages();
+    }, []);
 
-    const { originalImageUrl } = useImagesContext()
-    const { setApplyTransformation } = useInteractiveContext();
-
-    const [activeOption, setActiveOption] = useState("");
-    const [backgroundColor, setBackgroundColor] = useState('#fff');
-    const [backgroundUrl, setBackgroundUrl] = useState("")
-    const [parametres, setParamaetres] = useState({})
-
-    const handleChangeComplete = (color) => {
-        setBackgroundColor(color.hex)
+    const handleChangeComplete = (color: ColorResult) => {
+        setBackgroundColor(color.hex);
     };
-
 
     return (
         <Card className="w-full shadow-none border-none rounded-none">
@@ -71,8 +70,8 @@ const BackgroundAIOption = () => {
                                 </SelectTrigger>
                                 <SelectContent position="popper">
                                     {background_option.options.map((option, index) => (
-                                        <SelectItem 
-                                            key={index} 
+                                        <SelectItem
+                                            key={index}
                                             value={option}
                                         >
                                             {option}
@@ -81,28 +80,23 @@ const BackgroundAIOption = () => {
                                 </SelectContent>
                             </Select>
                         </div>
-                        {activeOption === background_option.options[1] && 
-                            <ChromePicker 
+                        {activeOption === background_option.options[1] &&
+                            <ChromePicker
                                 color={backgroundColor}
                                 onChangeComplete={handleChangeComplete}
                             />
                         }
-                        {activeOption === background_option.options[2] && 
+                        {activeOption === background_option.options[2] &&
                             <div>
                                 <Label htmlFor="url">Link</Label>
-                                {/* <Input
-                                    id="url" 
-                                    placeholder="Url" 
-                                    value={backgroundUrl} 
-                                    onChange={handleInputChange}/> */}
                                 <Select onValueChange={(value) => setBackgroundUrl(value)}>
                                     <SelectTrigger id="backgroundOption">
                                         <SelectValue placeholder="Select Image" />
                                     </SelectTrigger>
                                     <SelectContent position="popper">
                                         {images.map((option, index) => (
-                                            <SelectItem 
-                                                key={index} 
+                                            <SelectItem
+                                                key={index}
                                                 value={option.url}
                                             >
                                                 {option.name}
@@ -116,7 +110,7 @@ const BackgroundAIOption = () => {
                 </form>
             </CardContent>
             <CardFooter className="flex justify-between">
-                <Button 
+                <Button
                     variant="outline"
                     onClick={() => {
                         setBackgroundColor('#fff');
@@ -126,16 +120,15 @@ const BackgroundAIOption = () => {
                     Clear
                 </Button>
                 {
-                    originalImageUrl && activeOption === background_option.options[0] || 
-                    originalImageUrl && activeOption === background_option.options[1] || 
-                    originalImageUrl && activeOption === background_option.options[2] ? 
-                    <Button className="mr-2" onClick={() => setApplyTransformation(true)}>Apply</Button>
-                    : <></>
+                    originalImageUrl && (activeOption === background_option.options[0] ||
+                        activeOption === background_option.options[1] ||
+                        activeOption === background_option.options[2]) ?
+                        <Button className="mr-2" onClick={() => setApplyTransformation(true)}>Apply</Button>
+                        : null
                 }
             </CardFooter>
         </Card>
-    )
-}
+    );
+};
 
-export default BackgroundAIOption
-
+export default BackgroundAIOption;

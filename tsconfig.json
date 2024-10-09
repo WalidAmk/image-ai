@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/sign-cloudinary-params/route.js", "components/shared/BackgroundAIOption.jsx", "components/shared/ImageUploader.jsx", "components/shared/ImageViewer.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/sign-cloudinary-params/route.js", "components/shared/BackgroundAIOption.tsx", "components/shared/ImageUploader.tsx", "components/shared/ImageViewer.tsx"],
   "exclude": ["node_modules"]
 }
