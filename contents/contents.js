@@ -41,3 +41,9 @@ export const background_option = {
 
 };
 
+export const extract_option = {
+    title: 'Extract',
+    description: 'Extract object with A.I',
+};
+
+
