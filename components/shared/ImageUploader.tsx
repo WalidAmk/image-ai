@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react';
-import { CldUploadWidget, CloudinaryUploadWidgetResults  } from 'next-cloudinary';
+import { CldUploadWidget, CloudinaryUploadWidgetResults, CloudinaryUploadWidgetInfo } from 'next-cloudinary';
 import { image_info } from '@/types/supabase';
 import { Button } from '../ui/button';
 import Image from 'next/image';
@@ -34,21 +34,25 @@ const ImageUploader: React.FC = () => {
                     sources: ['local'], 
                     maxFiles: 1,
                 }}
-                onSuccess={(result: CloudinaryUploadWidgetResults ) => {
-                    const image_info: image_info = {
-                        user_id: "",
-                        name: result?.info?.display_name || '',
-                        public_id: result?.info?.public_id || '',
-                        url: result?.info?.secure_url || '',
-                        width: result?.info?.width || 0,
-                        height: result?.info?.height || 0,
-                    };
-                    saveImageInfo(image_info);
-                    setOriginalImageUrl(result?.info?.secure_url || '');
-                    setOriginalImageWidth(result?.info?.width || 0);
-                    setOriginalImageHeight(result?.info?.height || 0);
-                    setOriginalImageId(result?.info?.public_id || '');
-                    setApplyTransformation(false);
+                onSuccess={(result: CloudinaryUploadWidgetResults) => {
+                    // Ensure that result.info is not a string
+                    if (typeof result.info !== 'string') {
+                        const info = result.info as CloudinaryUploadWidgetInfo;
+                        const image_info: image_info = {
+                            user_id: "",
+                            name: info?.display_name || '',
+                            public_id: info?.public_id || '',
+                            url: info?.secure_url || '',
+                            width: info?.width || 0,
+                            height: info?.height || 0,
+                        };
+                        saveImageInfo(image_info);
+                        setOriginalImageUrl(info?.secure_url || '');
+                        setOriginalImageWidth(info?.width || 0);
+                        setOriginalImageHeight(info?.height || 0);
+                        setOriginalImageId(info?.public_id || '');
+                        setApplyTransformation(false);
+                    }
                 }}
             >
                 {({ open }) => {
