@@ -21,6 +21,7 @@ const ComponentToPrint = React.forwardRef<HTMLImageElement, ComponentToPrintProp
         src={props.imageId}
         alt="Description of my image"
         ref={ref}
+        className='max-h-[500px] w-96'
     />
 ));
 
