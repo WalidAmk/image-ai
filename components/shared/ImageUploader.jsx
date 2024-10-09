@@ -18,7 +18,7 @@ const ImageUploader = () => {
 
     const { setApplyTransformation } = useInteractiveContext();
     
-    const saveImageInfo = async (imgInfo: image_info) => {
+    const saveImageInfo = async (imgInfo) => {
         const response = await fetch('/api/images/save', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -36,7 +36,7 @@ const ImageUploader = () => {
                     maxFiles: 1,
                 }}
                 onSuccess={(result, { widget }) => {
-                    const image_info: image_info = {
+                    const image_info = {
                         user_id: "",
                         name: result?.info?.display_name,
                         public_id: result?.info?.public_id,

@@ -49,7 +49,7 @@ const BackgroundAIOption = () => {
     const [backgroundUrl, setBackgroundUrl] = useState("")
     const [parametres, setParamaetres] = useState({})
 
-    const handleChangeComplete = (color: any) => {
+    const handleChangeComplete = (color) => {
         setBackgroundColor(color.hex)
     };
 
