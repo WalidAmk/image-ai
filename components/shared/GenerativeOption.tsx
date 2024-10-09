@@ -146,7 +146,7 @@ const GenerativeOption = () => {
                                     value={imageWidth}
                                     defaultValue={originalImageWidth}
                                     onChange={(e) => {
-                                        setImageWidth(e.target.value)
+                                        setImageWidth(Number(e.target.value))
                                     }}
                                 />
                             </div>
@@ -158,7 +158,7 @@ const GenerativeOption = () => {
                                     placeholder="height" 
                                     value={imageHeight}
                                     onChange={(e) => {
-                                        setImageHeight(e.target.value)
+                                        setImageHeight(Number(e.target.value))
                                     }}
                                 />
                             </div>
@@ -206,7 +206,13 @@ const GenerativeOption = () => {
                 <Button 
                     variant="outline"
                     onClick={() => {
-                        
+                        setPrompt("");
+                        setReplacePrompt("");
+                        setByPrompt("");
+                        setBackgroundColor('#fff');
+                        setImageWidth(originalImageWidth);
+                        setImageHeight(originalImageHeight);
+                        setSelectedOption("");
                 }}>
                     Clear
                 </Button>
