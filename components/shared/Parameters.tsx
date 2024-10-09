@@ -8,6 +8,7 @@ import ExtractOption from './ExtractOption'
 import GenerativeOption from './GenerativeOption'
 import { useImagesContext } from "@/context/FullContext";
 import ImageDownloader from './ImageDownloader'
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 const Parameters = () => {
@@ -16,8 +17,8 @@ const Parameters = () => {
     const { transformedImageUrl } = useImagesContext()
 
     return (
-        <div className='h-full flex flex-col justify-start'>
-            <div className='h-full'>
+        <div className='h-full flex flex-col col-span-1 justify-start'>
+            <div className='h-full w-full'>
                 {activeOption === "Background" ? <BackgroundAIOption/> : 
                     activeOption === "Extract" ? <ExtractOption/> : <GenerativeOption/>
                 }
