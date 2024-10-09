@@ -2,7 +2,6 @@
 
 import React from 'react'
 import ImageUploader from './ImageUploader'
-import ImageTransformed from './ImageTransformed'
 import { useInteractiveContext } from "@/context/FullContext"
 import BackgroundAIOption from './BackgroundAIOption'
 import ExtractOption from './ExtractOption'
