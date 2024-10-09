@@ -38,7 +38,7 @@ const ImageViewer = () => {
                     Download
                 </Button>}
             </div>
-            <div className='bg-slate-100 h-full flex items-center justify-center'>
+            <div className='bg-slate-100 h-full max-h-screen flex items-center justify-center'>
                 {
                     applyTransformation ? 
                     (
@@ -54,6 +54,7 @@ const ImageViewer = () => {
                         alt='Image' 
                         width={originalImageWidth} 
                         height={originalImageHeight}
+                        className='max-h-[500px] w-96'
                     />)
                 }
             </div>
