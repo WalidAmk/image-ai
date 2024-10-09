@@ -122,7 +122,7 @@ const BackgroundAIOption: React.FC = () => {
                 {
                     originalImageUrl && (activeOption === background_option.options[0] ||
                         activeOption === background_option.options[1] ||
-                        activeOption === background_option.options[2]) ?
+                        activeOption === background_option.options[2] && backgroundUrl) ?
                         <Button className="mr-2" onClick={() => setApplyTransformation(true)}>Apply</Button>
                         : null
                 }
