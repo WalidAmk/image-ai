@@ -16,6 +16,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import ImageUploader from "@/components/shared/ImageUploader";
+import { getImage } from "@/types/variable";
 
 
 
@@ -37,19 +39,21 @@ export default function Home() {
 
   return (
     <div>
+      <Header/>
       <SignedOut>
-        <SignInButton />
+        <p className="text-3xl px-8 py-4 font-semibold ">Go Sign In</p>
       </SignedOut>
       <SignedIn>
-        <Header/>
-        <Link href={'/editor'}>
-          <Button className="my-2 mx-8">
-            Editor
-          </Button>
-        </Link>
+        <div>
+          <Link href={'/editor'}>
+            <Button className="my-2 mx-8">
+              Edit Image
+            </Button>
+          </Link>
+        </div>
         <div className="grid grid-cols-3 gap-6 mx-8 my-3">
           {images.length !== 0 &&
-              images.map((image) => (
+              images.map((image: getImage) => (
                 <Card className="w-96">
                   <CardHeader className="w-full h-64 relative flex items-center justify-center">
                     <Image 

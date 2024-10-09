@@ -1,6 +1,7 @@
 import { title } from '@/contents/contents'
-import { UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import React from 'react'
+import { Button } from '../ui/button'
 
 const Header = () => {
     return (
@@ -8,7 +9,14 @@ const Header = () => {
             <h2
                 className='text-2xl font-semibold text-white'
             >{title}</h2>
-            <UserButton/>
+            <SignedOut>
+                <Button>
+                    <SignInButton />
+                </Button>
+            </SignedOut>
+            <SignedIn>
+                <UserButton />
+            </SignedIn>
         </header>
     )
 }
