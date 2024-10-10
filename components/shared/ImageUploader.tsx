@@ -58,7 +58,7 @@ const ImageUploader: React.FC = () => {
                 {({ open }) => {
                     return (
                         <Button onClick={() => open()}>
-                            Upload
+                            Upload Image
                         </Button>
                     );
                 }}
