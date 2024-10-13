@@ -37,3 +37,27 @@ export const features_section = {
         },
     ]
 }
+
+export const pricing_section = {
+    title: "Pricing",
+    subheadline: "Buy credits for more edits",
+    plans: [
+        {
+            credits:20,
+            price: 4,
+        },
+        {
+            credits:50,
+            price: 8,
+        },
+        {
+            credits:90,
+            price: 12,
+        },
+    ]
+}
+
+export const cta_section = {
+    title: "Sign up for free today",
+    subheadline: "Celebrate the joy of editing with an app designed to use power of A.I.",
+}

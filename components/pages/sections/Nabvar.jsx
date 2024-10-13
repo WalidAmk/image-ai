@@ -20,16 +20,16 @@ const Nabvar = () => {
                 <Image src={Logo} alt="Logo" width={50} height={50}/>
             </div>
             <div className='hidden md:flex gap-6 items-center font-medium text-gray-800'>
-                <Link href={'/about'}>
+                <Link href={'#about'}>
                     <span className='hover:underline'>About</span>
                 </Link>
-                <Link href={'/features'}>
+                <Link href={'#features'}>
                     <span className='hover:underline'>Features</span>
                 </Link>
-                <Link href={'/testionials'}>
+                <Link href={'#testionials'}>
                     <span className='hover:underline'>Testimonials</span>
                 </Link>
-                <Link href={'/pricing'}>
+                <Link href={'#pricing'}>
                     <span className='hover:underline'>Pricing</span>
                 </Link>
                 <Link href={'/sign-in'}>

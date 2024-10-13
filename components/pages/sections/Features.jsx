@@ -4,9 +4,9 @@ import Image from 'next/image'
 import Cube from '@/app/assets/icons/cube.png'
 
 
-const Testimonials = () => {
+const Features = () => {
     return (
-        <div className='w-full py-24 md:px-16'>
+        <div id='features' className='w-full py-24 md:px-16'>
             <div className='w-full'>
                 <h1
                     className='mx-auto font-bold w-[300px] md:w-[500px] lg:w-[700px] text-3xl md:text-4xl lg:text-5xl text-center pb-6 bg-clip-text text-transparent bg-gradient-to-b from-black to-[#001E7F]'
@@ -42,4 +42,4 @@ const Testimonials = () => {
     )
 }
 
-export default Testimonials
+export default Features

@@ -5,7 +5,7 @@ import AboutImage from '@/app/assets/images/about.JPG'
 
 const About = () => {
     return (
-        <div className='w-full bg-gradient-to-b from-white to-lightColor py-24'>
+        <div id='about' className='w-full bg-gradient-to-b from-white to-lightColor py-24'>
             <div className='w-full'>
                 <p className='mx-auto font-semibold w-auto text-xs md:text-base text-center pb-12'>{about_section.smallsubheadline}</p>
                 <h1 className='mx-auto font-bold w-[300px] md:w-[500px] lg:w-[700px] text-3xl md:text-4xl lg:text-5xl text-center pb-6 bg-clip-text text-transparent bg-gradient-to-b from-black to-[#001E7F]'>{about_section.title}</h1>

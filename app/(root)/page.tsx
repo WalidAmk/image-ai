@@ -1,6 +1,5 @@
 "use client"
 
-
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
