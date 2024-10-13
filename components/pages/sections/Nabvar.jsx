@@ -15,7 +15,7 @@ import {
 
 const Nabvar = () => {
     return (
-        <nav className='py-1 sticky top-0 z-50 w-full  md:py-3 px-6 md:px-12 bg-lightColor flex justify-between items-center'>
+        <nav className='py-1 shadow-lg sticky top-0 z-50 w-full  md:py-3 px-6 md:px-12 bg-lightColor flex justify-between items-center'>
             <div className='w-8 h-8 md:w-12 md:h-12 flex justify-center items-center'>
                 <Image src={Logo} alt="Logo" width={50} height={50}/>
             </div>
