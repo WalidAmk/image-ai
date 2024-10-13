@@ -43,16 +43,16 @@ const Nabvar = () => {
                     </SheetTrigger>
                     <SheetContent className='w-full'>
                         <div className='w-full pt-12 grid grid-cols-1 gap-6'>
-                            <Link href={'/about'}>
+                            <Link href={'#about'}>
                                 <span className='hover:underline'>About</span>
                             </Link>
-                            <Link href={'/features'}>
+                            <Link href={'#features'}>
                                 <span className='hover:underline'>Features</span>
                             </Link>
-                            <Link href={'/testionials'}>
+                            <Link href={'#testionials'}>
                                 <span className='hover:underline'>Testimonials</span>
                             </Link>
-                            <Link href={'/pricing'}>
+                            <Link href={'#pricing'}>
                                 <span className='hover:underline'>Pricing</span>
                             </Link>
                             <Link href={'/sign-in'}>
