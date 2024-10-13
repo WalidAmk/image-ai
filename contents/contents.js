@@ -9,22 +9,6 @@ export const ai_options = [
     "Generative",
 ];
 
-export const ai_options_details = {
-    Background: [
-        "Remove",
-        "Color",
-        "Image",
-    ],
-    Extract: ["Extract"],
-    Generative: [
-        "Replace Background",
-        "Replace Object",
-        "Remove",
-        "Recolor",
-        "Fill"
-    ]
-};
-
 export const background_option = {
     title: 'Background',
     description: 'Edit your background with A.I',
@@ -40,8 +24,6 @@ export const extract_option = {
     title: 'Extract',
     description: 'Extract object with A.I',
 };
-
-
 
 export const generative_option = {
     title: 'Generate',

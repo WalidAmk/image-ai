@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/card"
 import ImageUploader from "@/components/shared/ImageUploader";
 import { getImage } from "@/types/variable";
+import LandingPage from "@/components/pages/LandingPage";
 
 
 
@@ -39,11 +40,12 @@ export default function Home() {
 
   return (
     <div>
-      <Header/>
+      
       <SignedOut>
-        <p className="text-3xl px-8 py-4 font-semibold ">Go Sign In</p>
+        <LandingPage />
       </SignedOut>
       <SignedIn>
+        <Header/>
         <div>
           <Link href={'/editor'}>
             <Button className="my-2 mx-8">
